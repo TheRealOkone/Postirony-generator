@@ -1,0 +1,1 @@
+https://business.bing.com/api/v3/search/person/photo?id={0}
