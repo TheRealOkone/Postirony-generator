@@ -1,0 +1,16 @@
+<!doctype html>
+<html> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>404 not found!</title>
+	</head> 
+<body>
+  <body style="background: #f0f0f0; text-align: center;">
+	<div id="content">
+ <div id="front_title">
+  <a href="/"><img src="/images/404.png" alt="404 - страница не найдена"></a><br /><br />
+  <p class="s12">Что-то не получилось... Такая страница не существует. Возможно она была удалена.<br />В любом случае не стоит печалиться! Ведь на нашем сайте можно найти ещё много полезной информации.<br />Нажмите на интересующий Вас пункт верхнего меню и получите соответствующую информацию<br />А можно просто начать обзор с главной страницы нажав на картинку "ошибки 404".</p>
+ </div>
+</div>
+  </body>
+</html>

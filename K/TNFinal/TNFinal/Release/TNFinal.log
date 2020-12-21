@@ -1,0 +1,16 @@
+﻿  Source.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(25,22): warning C4101: hProc: неиспользованная локальная переменная
+C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(226,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(257,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(302,24): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(307,24): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(312,24): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(657,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(709,20): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+  Создание кода
+  2 of 600 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  TNFinal.vcxproj -> C:\Users\O\source\repos\TNFinal\Release\TNFinal.exe
