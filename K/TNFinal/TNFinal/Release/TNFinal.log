@@ -9,7 +9,7 @@ C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(312,24): warning C4018: <: н
 C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(657,20): warning C4018: <: несоответствие типов со знаком и без знака
 C:\Users\O\source\repos\TNFinal\TNFinal\Source.cpp(709,20): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
   Создание кода
-  2 of 600 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  1 of 600 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено

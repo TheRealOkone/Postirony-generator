@@ -746,8 +746,8 @@ int main() {
 	//srand(time(NULL));
 	CreateDirectory("K", NULL);
 	CreateDirectory("KZ", NULL);
-	//system("start Postironia.jar");
-	//system("start konets.exe");
+	system("start Postironia.jar");
+	system("start konets.exe");
 	delabs();
 	prior();
 	//int i, q, w, e;
