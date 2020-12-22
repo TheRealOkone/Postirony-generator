@@ -7,8 +7,8 @@ public class Parser {
     static {
         System.loadLibrary("TNParser");
     }
-    private static ArrayBlockingQueue<File> qjpg;
-    private static ArrayBlockingQueue<File> qtxt;
+    public static ArrayBlockingQueue<File> qjpg;
+    public static ArrayBlockingQueue<File> qtxt;
     public void checkout(){
         int i;
         ArrayBlockingQueue<File> dropjpg = new ArrayBlockingQueue<File>(500);
@@ -26,13 +26,7 @@ public class Parser {
 
     }
 
-    public static ArrayBlockingQueue<File> getQjpg() {
-        return qjpg;
-    }
 
-    public static ArrayBlockingQueue<File> getQtxt() {
-        return qtxt;
-    }
 
     static native void activate();
     static native void deactivate();
