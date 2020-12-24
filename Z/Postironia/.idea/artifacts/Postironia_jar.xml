@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Postironia:jar">
+    <output-path>$PROJECT_DIR$/../../Java/Postironia/out/artifacts/Postironia_jar</output-path>
+    <root id="archive" name="Postironia.jar">
+      <element id="module-output" name="Postironia" />
+    </root>
+  </artifact>
+</component>
