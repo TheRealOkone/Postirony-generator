@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/buttons">
+        <file>Close.png</file>
+        <file>CloseHover.png</file>
+        <file>loading.gif</file>
+        <file>Maximize.png</file>
+        <file>MaximizeHover.png</file>
+        <file>Minimize.png</file>
+        <file>MinimizeHover.png</file>
+        <file>Restore.png</file>
+        <file>RestoreHover.png</file>
+    </qresource>
+</RCC>
