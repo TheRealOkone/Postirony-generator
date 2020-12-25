@@ -29,9 +29,9 @@ public class Gui extends JFrame {
     private static String mark = "";
 
 
-    public ArrayBlockingQueue<String> pictures = new ArrayBlockingQueue<String>(1);
-    public ArrayBlockingQueue<String> questions = new ArrayBlockingQueue<String>(1);
-    public ArrayBlockingQueue<String> marks = new ArrayBlockingQueue<String>(1);
+    public static ArrayBlockingQueue<String> pictures = new ArrayBlockingQueue<String>(1);
+    public static ArrayBlockingQueue<String> questions = new ArrayBlockingQueue<String>(1);
+    public static ArrayBlockingQueue<String> marks = new ArrayBlockingQueue<String>(1);
 
     public Gui() {
         setupUi();
