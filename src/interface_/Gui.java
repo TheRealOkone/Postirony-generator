@@ -29,8 +29,9 @@ public class Gui extends JFrame {
     private static String mark = "";
 
 
-    public ArrayBlockingQueue<String> pictures = new ArrayBlockingQueue<String>(100);
-    public ArrayBlockingQueue<String> marks = new ArrayBlockingQueue<String>(100);
+    public ArrayBlockingQueue<String> pictures = new ArrayBlockingQueue<String>(1);
+    public ArrayBlockingQueue<String> questions = new ArrayBlockingQueue<String>(1);
+    public ArrayBlockingQueue<String> marks = new ArrayBlockingQueue<String>(1);
 
     public Gui() {
         setupUi();
@@ -42,21 +43,21 @@ public class Gui extends JFrame {
 
 
 
-        setTitle("Neuro.Postironia");
+        setTitle("Postironia");
 
 
         addComponentListener(new ComponentAdapter() {
-                 public void componentResized(ComponentEvent evt) {
-                     ImageIcon ic = null;
-                     try {
-                         ic = new ImageIcon(ScaledImage(kart, panel1.getWidth(), panel1.getHeight() - TIKButton.getHeight() - 41));
-                         label1.setIcon(ic);
-                     }
-                     catch (NullPointerException ex) {
+                                 public void componentResized(ComponentEvent evt) {
+                                     ImageIcon ic = null;
+                                     try {
+                                         ic = new ImageIcon(ScaledImage(kart, panel1.getWidth(), panel1.getHeight() - TIKButton.getHeight() - 41));
+                                         label1.setIcon(ic);
+                                     }
+                                     catch (NullPointerException ex) {
 
-                     }
-                 }
-             }
+                                     }
+                                 }
+                             }
         );
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -205,18 +206,15 @@ public class Gui extends JFrame {
                 super.mouseClicked(e);
 
                 try {
-                    String path = pictures.poll();
-                    if(path.length() == 0)
-                        throw new NullPointerException();
-                    String[] paths = path.split("#");
+                    String pic = pictures.poll();
+                    String txt = questions.poll();
                     try {
-                        line1 = Files.readString(Paths.get(paths[1]));
+                        line1 = Files.readString(Paths.get(txt));
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
                     kart = null;
-                    String current = paths[0];
-                    File file = new File(current);
+                    File file = new File(pic);
                     kart = ImageIO.read(file);
                     ImageIcon ic = new ImageIcon(ScaledImage(kart, panel1.getWidth(), panel1.getHeight() - TIKButton.getHeight() - 41));
                     label1.setIcon(ic);
