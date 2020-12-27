@@ -349,6 +349,7 @@ public class Gui extends JFrame {
             }
         };
         Thread thread1 = new Thread(task1);
+        thread1.setDaemon(true);
         thread1.start();
     }
 
