@@ -7,7 +7,7 @@ import ru.parse.Parser;
 import java.io.IOException;
 
 public class Controller {
-    public static void main(){
+    public static void main(String[] args){
         Parser parser = new Parser();
         Gui gui = new Gui();
         Postironia post = new Postironia();
