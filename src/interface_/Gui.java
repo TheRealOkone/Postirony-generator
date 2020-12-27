@@ -33,7 +33,7 @@ public class Gui extends JFrame {
     public static ArrayBlockingQueue<String> questions = new ArrayBlockingQueue<String>(1);
     public static ArrayBlockingQueue<String> marks = new ArrayBlockingQueue<String>(1);
 
-    public void cons() {
+    public Gui() {
         setupUi();
 
         setMinimumSize(new Dimension(720, 550));
@@ -207,15 +207,11 @@ public class Gui extends JFrame {
 
                 try {
                     String pic = pictures.poll();
-                    String txt = questions.poll();
-                    try {
-                        line1 = Files.readString(Paths.get(txt));
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
+                    line1 = questions.poll();
                     kart = null;
                     File file = new File(pic);
                     kart = ImageIO.read(file);
+                    file.delete();
                     ImageIcon ic = new ImageIcon(ScaledImage(kart, panel1.getWidth(), panel1.getHeight() - TIKButton.getHeight() - 41));
                     label1.setIcon(ic);
                     label1.setText("");
@@ -323,6 +319,19 @@ public class Gui extends JFrame {
             }
         });
         panel2.setVisible(false);
+        label1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                if(kart != null) {
+                    label1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                }
+                else {
+                    label1.setCursor(Cursor.getPredefinedCursor((Cursor.DEFAULT_CURSOR)));
+                }
+            }
+        });
+
     }
 
 
@@ -342,7 +351,7 @@ public class Gui extends JFrame {
     }
 
     // если все сломается, то cons - старый конструктор
-    public void Gui(){
+    /*public void Gui(){
         Runnable task1 = new Runnable() {
             public void run() {
                 cons();
@@ -351,10 +360,12 @@ public class Gui extends JFrame {
         Thread thread1 = new Thread(task1);
         thread1.setDaemon(true);
         thread1.start();
-    }
+    }*/
 
 
     /*public static void main(String[] args) {
         Gui f = new Gui();
+        Gui.pictures.add("C:\\Users\\Nickname\\IdeaProjects\\Generator\\jk.jpg");
+        Gui.questions.add("stxt2-1#stxt2-3#txt-img1#txt-img2#txt-img3");
     }*/
 }
