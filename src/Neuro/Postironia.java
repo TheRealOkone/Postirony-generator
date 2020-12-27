@@ -1,5 +1,8 @@
 package Neuro;
 
+import interface_.Gui;
+import ru.parse.Parser;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.font.FontRenderContext;
@@ -9,7 +12,15 @@ import java.io.*;
 import java.util.Arrays;
 
 public class Postironia {
-    public static void main(String[] args) throws IOException {
+    //public static void main(String[] args) throws IOException {
+    public void oldmain(Parser parser, Gui gui) throws IOException {
+        //    public  ArrayBlockingQueue<File> qjpg;
+        //    public  ArrayBlockingQueue<File> qtxt;
+        //это мои очереди
+        //    public static ArrayBlockingQueue<String> pictures = new ArrayBlockingQueue<String>(1);
+        //    public static ArrayBlockingQueue<String> questions = new ArrayBlockingQueue<String>(1);
+        //    public static ArrayBlockingQueue<String> marks = new ArrayBlockingQueue<String>(1);
+        //это очереди Никиты
         Generator generator = new Generator();
         String pathToPicture = "KZ";
         String pathToResult = "ZN";

@@ -33,7 +33,7 @@ public class Gui extends JFrame {
     public static ArrayBlockingQueue<String> questions = new ArrayBlockingQueue<String>(1);
     public static ArrayBlockingQueue<String> marks = new ArrayBlockingQueue<String>(1);
 
-    public Gui() {
+    public void cons() {
         setupUi();
 
         setMinimumSize(new Dimension(720, 550));
@@ -339,6 +339,17 @@ public class Gui extends JFrame {
         else {
             return null;
         }
+    }
+
+    // если все сломается, то cons - старый конструктор
+    public void Gui(){
+        Runnable task1 = new Runnable() {
+            public void run() {
+                cons();
+            }
+        };
+        Thread thread1 = new Thread(task1);
+        thread1.start();
     }
 
 
