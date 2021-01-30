@@ -11,15 +11,7 @@ public class Controller {
         Parser parser = new Parser();
         Gui gui = new Gui();
         Postironia post = new Postironia();
-        Runnable task1 = new Runnable() {
-            public void run() {
-                try {
-                    post.oldmain(parser,gui);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
+        Runnable task1 = () -> post.oldmain(parser,gui);
         Thread thread1 = new Thread(task1);
         thread1.start();
     }

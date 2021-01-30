@@ -6,13 +6,13 @@ import java.io.*;
 import java.util.*;
 
 class Generator {
-    private File fileToVerbs = new File("Neuro.Z\\verbs.txt");
-    private File fileToNouns = new File("Neuro.Z\\nouns.txt");
-    private File fileToAdjectives = new File("Neuro.Z\\adjectives.txt");
-    private File fileToIndefiniteWords = new File("Neuro.Z\\indefiniteWords.txt");
-    private File fileToGarbage = new File("Neuro.Z\\garbage.txt");
-    private File fileToRequests = new File("Neuro.Z\\requests.txt");
-    private File fileToGenerator = new File("Neuro.Z\\generator1.txt");
+    private File fileToVerbs = new File("src\\Neuro\\Z\\verbs.txt");
+    private File fileToNouns = new File("src\\Neuro\\Z\\nouns.txt");
+    private File fileToAdjectives = new File("src\\Neuro\\Z\\adjectives.txt");
+    private File fileToIndefiniteWords = new File("src\\Neuro\\Z\\indefiniteWords.txt");
+    private File fileToGarbage = new File("src\\Neuro\\Z\\garbage.txt");
+    private File fileToRequests = new File("src\\Neuro\\Z\\requests.txt");
+    private File fileToGenerator = new File("src\\Neuro\\Z\\generator1.txt");
     private Set<Verb> verbs = new HashSet<>();
     private Set<Verb> verbsWithOutPast = new HashSet<>();
     private Set<Verb> verbsProblemPast = new HashSet<>();
@@ -34,7 +34,7 @@ class Generator {
 
     Generator() {
         try {
-            File dir = new File("Neuro/Z");
+            File dir = new File("src\\Neuro\\Z");
             dir.mkdirs();
             fileToAdjectives.createNewFile();
             fileToNouns.createNewFile();

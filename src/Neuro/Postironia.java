@@ -21,6 +21,7 @@ public class Postironia {
         //    public static ArrayBlockingQueue<String> marks = new ArrayBlockingQueue<String>(1);
         //это очереди Никиты
         Generator generator = new Generator();
+        new File("ZN").mkdir();
         try {
             while (true) {
                 File fRequest = parser.qtxt.take();
