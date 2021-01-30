@@ -90,6 +90,7 @@ public class Postironia {
         }
         catch (Exception e) {
             generator.close();
+            e.printStackTrace();
         }
     }
 
