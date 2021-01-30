@@ -12,8 +12,7 @@ import java.io.*;
 import java.util.Arrays;
 
 public class Postironia {
-    //public static void main(String[] args) throws IOException {
-    public void oldmain(Parser parser, Gui gui) throws IOException {
+    public void oldmain(Parser parser, Gui gui) {
         //    public  ArrayBlockingQueue<File> qjpg;
         //    public  ArrayBlockingQueue<File> qtxt;
         //это мои очереди
@@ -22,36 +21,15 @@ public class Postironia {
         //    public static ArrayBlockingQueue<String> marks = new ArrayBlockingQueue<String>(1);
         //это очереди Никиты
         Generator generator = new Generator();
-        String pathToPicture = "KZ";
-        String pathToResult = "ZN";
-        String pathToMark = "ZN\\mark.txt";
-        String pathToRequest = "KZ\\request.txt";
-        File filePicture = new File(pathToPicture);
-        filePicture.mkdirs();
-        pathToPicture += "\\image.jpg";
-        filePicture = new File(pathToPicture);
-        File file = new File(pathToResult);
-        file.mkdirs();
-        File fileExit = new File("exit.txt");
-        fileExit.createNewFile();
-        File fileMark = new File(pathToMark);
-        File fileRequest = new File(pathToRequest);
-        try (RandomAccessFile fileExitReader = new RandomAccessFile(fileExit, "r")) {
-            end:
-            while (fileExitReader.readLine() == null) {
-                while (!filePicture.exists() || !fileRequest.exists())
-                    try {
-                        Thread.sleep(100);
-                        if (fileExitReader.readLine() != null)
-                            break end;
-                    } catch (InterruptedException e) {
-                        break;
-                    }
+        try {
+            while (true) {
+                File fRequest = parser.qtxt.take();
+                File filePicture = parser.qjpg.take();
                 String request;
-                try (BufferedReader fileRequestAccess = new BufferedReader(new InputStreamReader(new FileInputStream(fileRequest), "UTF8"))) {
-                    request = fileRequestAccess.readLine();
+                try (BufferedReader reader = new BufferedReader(new FileReader(fRequest))) {
+                    request = reader.readLine();
                 }
-                fileRequest.delete();
+                fRequest.delete();
                 String[] texts = new String[5];
                 for (int i = 0; i < 5; i++)
                     texts[i] = "";
@@ -88,47 +66,20 @@ public class Postironia {
                 String name2 = "ZN\\text.txt";
                 File fileText = new File(name2);
                 File resultImage = new File(name);
-                while (fileText.exists() || resultImage.exists())
-                    try {
-                        Thread.sleep(100);
-                        if (fileExitReader.readLine() != null)
-                            break end;
-                    } catch (InterruptedException e) {
-                        break;
-                    }
                 fileText.createNewFile();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileText), "UTF-8"));
                 writer.write(texts[2]);
                 writer.close();
                 ImageIO.write(read, "jpg", resultImage);
                 filePicture.delete();
-                while (!fileMark.exists()) {
-                    try {
-                        Thread.sleep(100);
-                        if (fileExitReader.readLine() != null)
-                            break end;
-                    } catch (InterruptedException e) {
-                        break;
-                    }
-                }
+                Gui.pictures.put(resultImage.getAbsolutePath());
+                Gui.questions.put(fileText.getAbsolutePath());
+                File fileMark = new File(Gui.marks.take());
                 String mark;
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileMark), "UTF-8"))) {
-                    for (mark = reader.readLine(); mark == null; mark = reader.readLine()) {
-                        Thread.sleep(100);
-                        if (fileExitReader.readLine() != null)
-                            break end;
-                    }
-                } catch (InterruptedException e) {
-                    break;
+                    mark = reader.readLine();
                 }
-                while (!fileMark.delete())
-                    try {
-                        Thread.sleep(100);
-                        if (fileExitReader.readLine() != null)
-                            break end;
-                    } catch (InterruptedException e) {
-                        break;
-                    }
+                fileMark.delete();
                 String[] strings = new String[6];
                 System.arraycopy(texts, 0, strings, 0, texts.length);
                 strings[5] = mark;
@@ -136,9 +87,9 @@ public class Postironia {
                 generator.putWord(strings);
             }
         }
-        deleteDirectory(file);
-        file.mkdir();
-        generator.close();
+        catch (Exception e) {
+            generator.close();
+        }
     }
 
     private static void deleteDirectory(File dir) {
