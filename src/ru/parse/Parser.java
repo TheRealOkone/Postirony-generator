@@ -31,6 +31,7 @@ public class Parser {
             File filetxt = new File("KZ", "request" + String.valueOf(i) +".txt");
             if((!jjj.contains(filejpg)) && (!ttt.contains(filetxt)) && filejpg.isFile() && filetxt.isFile()){
                 try {
+                    Thread.sleep(4000);
                     qjpg.put(filejpg);
                     qtxt.put(filetxt);
                 } catch (InterruptedException e) {
