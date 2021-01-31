@@ -63,24 +63,13 @@ public class Postironia {
                     filePicture.delete();
                     continue;
                 }
-                String name = "ZN\\image.jpg";
-                String name2 = "ZN\\text.txt";
-                File fileText = new File(name2);
-                File resultImage = new File(name);
-                fileText.createNewFile();
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileText), "UTF-8"));
-                writer.write(texts[2]);
-                writer.close();
+                String imageName = "ZN\\image.jpg";
+                File resultImage = new File(imageName);
                 ImageIO.write(read, "jpg", resultImage);
                 filePicture.delete();
                 Gui.pictures.put(resultImage.getAbsolutePath());
-                Gui.questions.put(fileText.getAbsolutePath());
-                File fileMark = new File(Gui.marks.take());
-                String mark;
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileMark), "UTF-8"))) {
-                    mark = reader.readLine();
-                }
-                fileMark.delete();
+                Gui.questions.put(texts[2]);
+                String mark = Gui.marks.take();
                 String[] strings = new String[6];
                 System.arraycopy(texts, 0, strings, 0, texts.length);
                 strings[5] = mark;
@@ -89,6 +78,7 @@ public class Postironia {
             }
         }
         catch (Exception e) {
+            e.printStackTrace();
             generator.close();
         }
     }
